@@ -1,8 +1,9 @@
-import java.util.*
+import kotlin.random.Random
 
 fun main(args: Array<String>) {
     ifUsage()
-    whenUsage()
+    whenUsageWithParameters()
+    whenUsageWithoutParameters()
 }
 
 fun ifUsage(){
@@ -21,7 +22,7 @@ fun ifUsage(){
     }
 }
 
-fun whenUsage(){
+fun whenUsageWithParameters(){
     val numero = 0
 
     when (numero) {
@@ -29,5 +30,16 @@ fun whenUsage(){
         in 1..99 -> println("$numero es un numero comprendido entre 0 y 9")
         100, 101 -> println("$numero es 100 o 101")
         else -> println("$numero es menor de 0 y mayor de 101")
+    }
+}
+
+fun whenUsageWithoutParameters(){
+    val condicion1 = Random.nextBoolean()
+    val condicion2 = Random.nextBoolean()
+
+    when  {
+        condicion1 && condicion2 -> println("Ambas son true")
+        (!condicion1 && condicion2) || (condicion1 && !condicion2) -> println("Una es true")
+        !condicion1 && !condicion2 -> println("Ambas son false")
     }
 }
